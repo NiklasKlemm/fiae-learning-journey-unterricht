@@ -20,10 +20,46 @@ def kopfzeile():
     print("================================================")
 
 
-def body():
-    zaehler_tage = 2  #1
-    datensatz = 0
+def body(tag, ankunfszeit, gehenszeit):
+    while tag < 31:
+        liste_neu = []
+        for datensatz in liste:
+            if datensatz[0] == tag:
 
+                if ankunfszeit == 0:
+                    ankunfszeit = datensatz[1]
+
+
+                if ankunfszeit != 0 and datensatz [1] != ankunfszeit:
+                    gehenszeit = datensatz[1]
+                print(tag, ankunfszeit, gehenszeit)
+        tag += 1
+
+body(0, 0, 0)
+
+''''#print(tag, f"{liste_neu[0]}\t {liste_neu[1]}\t ")
+                liste_neu.append(datensatz[1])
+                #print(liste_neu)
+
+                if len(liste_neu) == 1:
+                    print(tag, f"{liste_neu[0]}\t \t eine buchung fehlt")
+
+                if len(liste_neu) == 2:
+                    print(tag, f"{liste_neu[0]}\t {liste_neu[1]}\t ")
+
+                else:
+                    print(tag, f"\t \t nicht anwesend")
+
+
+
+        tag += 1'''
+
+
+
+
+
+'''    zaehler_tage = 2  #1
+    datensatz = 0
     while  zaehler_tage < 31:
         if zaehler_tage == liste[datensatz][0] and zaehler_tage == liste[datensatz + 1][0]:
             print(f"Tag: {liste[datensatz][0]} {liste[datensatz][1] // 60}:{liste[datensatz][1] % 60}")
@@ -38,23 +74,10 @@ def body():
             print(f"Tag: {zaehler_tage}: Kein Eintrag gefunden.")
         zaehler_tage += 1
         datensatz += 1
+'''
 
 
-
-
-
-    '''for eintrag in liste :
-        if zaehler_tage == eintrag[0]: #liste[datensatz][0]:
-                print(f"Tag: {eintrag[0]} {eintrag[1] // 60}:{eintrag[1] % 60}")
-
-        else:
-            #datensatz += 1
-
-            print(f"Tag: {zaehler_tage}: Kein Eintrag gefunden.")
-            zaehler_tage += 1'''
-
-
-body()
+body(0)
 
 
 def fußzeile():
