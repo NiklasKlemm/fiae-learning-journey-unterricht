@@ -25,11 +25,9 @@ class Schaf(Tier):
 def zoo_show(tier):
     tier.mache_gerausch()
 
-
 zoo_show(Hund())
 zoo_show(Katze())
 zoo_show(Schaf())
-
 
 #d)
 class Vogel(Tier):
