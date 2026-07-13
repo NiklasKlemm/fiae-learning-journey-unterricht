@@ -1,12 +1,19 @@
-taskPrio = [5, 7, 4, 7, 2, 7, 3]
-indexMaxPrio = 0
-maxPrioritaet = 10
-i = 0
-
-#while i == 0 and i < 7:
- #   if
+class Lampe:
+    def __init__(self, status):
+        self.status = status
 
 
-if 5 < 10:
-    print("test")
+class Schalter:
+    def einschalten(self, lampe_object):
+        lampe_object.status = True
 
+
+
+    def ausschalten(self, lampe_object):
+        lampe_object.status = False
+
+
+lampe = Lampe(status=False)
+schalter = Schalter()
+schalter.einschalten(lampe)
+print(lampe.status)
