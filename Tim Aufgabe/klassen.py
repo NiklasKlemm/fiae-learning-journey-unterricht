@@ -49,8 +49,55 @@ class Kunde(Person):
         super().__init__(  id_wert)
         self.kundennummer = kundennummer
 
-    def auswahlPizza():
-        pass
+    def auswahlPizza(self, bestellungObjekt):
+        #Darstellung der Auswahl + Auswahl durch Input. Anschließend übergabe der Bestellung an "pizzaHinzufügen"
+        #Return ausßerdem die Antort aus "pizzaHinzufügen" zwecks weitere Bestellung an die Main
+        print("""Bitte Wählen Sie Eine Pizza aus!
+                
+                Pizza\t\t\tGröße\t\tPreis
+                ------------------------------------------------
+                Margherita\t\tMittel\t\t6.50 EUR
+                Salami\t\t\tMittel\t\t7.50 EUR
+                Funghi\t\t\tMittel\t\t7.90 EUR
+                Quattro Stagioni\tGroß\t\t9.50 EUR
+                Diavola\t\t\tGroß\t\t8.90 EUR
+            """)
+        
+        pizza = input("Welche Pizza darf es sein?")
+        if pizza == "Margherita":
+            '''bestellungObjekt = Bestellung(
+                                    #pizzaid = "1",
+                                    pizza = "Margherita"
+                                    )    '''              
+            return bestellungObjekt.pizzaHinzufügen("1", "Margherita", "Mittel", 6.50)
+
+        elif pizza == "Salami": 
+            #bestellungObjekt.pizza = "Salami"              
+            return bestellungObjekt.pizzaHinzufügen("2", "Salami", "Mittel", 7.50)
+
+        elif pizza == "Funghi":
+            '''bestellungObjekt = Bestellung(
+                                    #pizzaid = "3",
+                                    pizza = "Funghi"
+                                    )      '''            
+            return bestellungObjekt.pizzaHinzufügen("3", "Funghi", "Mittel", 7.90)
+
+        elif pizza == "Quattro":
+            '''bestellungObjekt = Bestellung(
+                                    #pizzaid = "4",
+                                    pizza = "Quattro"
+                                    )    '''              
+            return bestellungObjekt.pizzaHinzufügen("4", "Quattro", "Groß", 9.50)
+
+        elif pizza == "Diavola":
+            '''bestellungObjekt = Bestellung(
+                                    #pizzaid = "12345",
+                                    pizza = "Diavola"
+                                    )   '''               
+            return bestellungObjekt.pizzaHinzufügen("5", "Diavola", "Groß", 8.90)
+        
+        else:
+            print("Diese Pizza gibt es leider nicht?")
 
     def bestellungAufgeben():
         pass
@@ -108,18 +155,24 @@ class Pizza:
 
 
 class Bestellung:
+    bestellnummer = 0
 
-    def __init__(self, bestellnummer, pizza):
-        self.bestellnummer = bestellnummer
+    def __init__(self, pizza):
+        Bestellung.bestellnummer += 1
+        self.bestellnummer = Bestellung.bestellnummer
         self.pizzen = pizza
         self.datum = datetime.now()
         self.status = "In Bearbeitung"
+        self.aktuelleBestellung = []
 
     def pizzaGesamtanzahl():
+        #for pizza in liste
         pass
 
     def pizzaHinzufügen(self, pizzaid, pizza, groesse, preis):
-        pizza = Pizza(pizzaid, pizza, groesse, preis )
+        #Eintragung der Auswahl in eine Aktuelle Bestellungsliste und return des Inputs ob eine Weiter Bestellung gewünscht ist
+        self.aktuelleBestellung.append(Pizza(pizzaid, pizza, groesse, preis))
+        return input(f"Möchten Sie 1 {pizza} Ihrer Bestellung hinzufügen?")
 
     def getStatus():
         pass
@@ -135,15 +188,15 @@ class Bestellung:
 
 
 class Zahlung:
-
-    def __init__(self, zahlungsid, betrag, zahlungsart, status):
-        self.zahlungsid = zahlungsid
+    zahlungsid = 0
+    def __init__(self,  betrag, zahlungsart):
+        Zahlung.zahlungsid += 1
         self.betrag = betrag
         self.zahlungsart = zahlungsart
-        self.status = status
+        self.status = "ongoing"
 
-    def zahlungAusfuehren():
-        pass
+    def zahlungAusfuehren(self):
+        print(f"Sie zahlen {self.betrag}€ mit {self.zahlungsart}")
 
     def getStatus():
         pass
