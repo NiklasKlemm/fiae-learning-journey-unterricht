@@ -39,21 +39,41 @@ def main():
         for pizza in bestellungsObjekt.aktuelleBestellung:
             print(f"1 {pizza.name} Pizza")
 
-        zufrieden = input("Bestellung OK? (ja / nein)")
-        if zufrieden == "ja":
-            #Bestellung verarbeiten und Zahlung
-            gesamtPreis = 0
-            for pizza in bestellungsObjekt.aktuelleBestellung:
-                gesamtPreis = gesamtPreis + pizza.preis
+        #Bestellung aufgeben
+        zufrieden = input("Bestellung OK? (ja / nein)")    
+        kundeObjekt.bestellungAufgeben(bestellungsObjekt)
+        #Bestellung bestätigen
+        mitarbeiterObjekt = klassen.Mitarbeiter()
+        mitarbeiterObjekt.bestellungBestätigen()
 
+        if zufrieden == "ja":
+            #Bestellung verarbeiten und Zahlu
+            gesamtPreis = bestellungsObjekt.berechneGesamtpreis()
             print(f"{gesamtPreis}€ macht das dann")
+
             zahlen = input("Möchten Sie zahlen? (ja / nein)")
             if zahlen == "ja":
-                zahlung = klassen.Zahlung(
-                                            betrag = gesamtPreis,
-                                            zahlungsart = input("Mit Karte oder Bar?"),
-                                            )
-                zahlung.zahlungAusfuehren()
+                kundeObjekt.zahlungDurchführen(gesamtPreis)
+
+                bestellstatusEinsehen = input("Bestellstatus einsehen? (ja / nein)")
+                if bestellstatusEinsehen == "ja":
+                    kundeObjekt.bestellstatusEinsehen(bestellungsObjekt)
+
+            #Bestellung wird verarbeitet
+            mitarbeiterObjekt.bestellungBearbeiten(bestellungsObjekt)
+
+            #
+            
+
+
+
+                #bestellung erstellen
+
+                #zubereitung entgegennehmen
+
+                #Bestellstatus erstellen
+
+                #Bestellestatus einsehen
 
         else:
             #Abbruch des Programms / der main funktion

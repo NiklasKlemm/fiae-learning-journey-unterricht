@@ -99,28 +99,41 @@ class Kunde(Person):
         else:
             print("Diese Pizza gibt es leider nicht?")
 
-    def bestellungAufgeben():
-        pass
+    def bestellungAufgeben(self, bestellungsObjekt):
+        bestellungsObjekt.status = "Bestellung eingegangen"
+        
 
-    def zahlungDurchführen():
-        pass
+    def zahlungDurchführen(self, gesamtPreis):
+        zahlungsart = input("Mit Karte oder Bar?")
+        zahlungsObjekt = Zahlung(betrag=gesamtPreis, zahlungsart=zahlungsart)
+        zahlungsObjekt.zahlungAusfuehren()
 
-    def bestellstatusEinsehen():
-        pass
+    def bestellstatusEinsehen(self, bestellungsObjekt):
+        print(f"Der Status Ihrer bestellung ist: {bestellungsObjekt.status}")
 
     def bewerten():
         pass
 
 class Mitarbeiter:
+    mitarbeiternummer = 0
 
-    def __init__(self, mitarbeiternummer):
-        self.mitarbeiternummer = mitarbeiternummer
+    def __init__(self):
+        Mitarbeiter.mitarbeiternummer += 1
+        self.mitarbeiternummer = Mitarbeiter.mitarbeiternummer
 
-    def bestellungBestätigen():
-        pass
+    def bestellungBestätigen(self):
+        print("Ihre Bestellung wurder Erfolgreich entgegengenommen.")
+    
 
-    def bestellungZuweisen():
-        pass
+    def bestellungBearbeiten(self, bestellungsObjekt):
+        print(f"Zubereitung fertig! Folgende Bestllung wird nun zussamgepackt und an den Lieferanten übergeben:")
+        for pizza in bestellungsObjekt.aktuelleBestellung:
+            print(f"1 {pizza.name} Pizza")
+
+        lieferantObjekt = Lieferant("Auto", "Pizza Laden HQ")
+
+        return lieferantObjekt
+
 
     def setBestellstatus():
         pass
@@ -162,7 +175,7 @@ class Bestellung:
         self.bestellnummer = Bestellung.bestellnummer
         self.pizzen = pizza
         self.datum = datetime.now()
-        self.status = "In Bearbeitung"
+        self.status = ""
         self.aktuelleBestellung = []
 
     def pizzaGesamtanzahl():
@@ -172,6 +185,7 @@ class Bestellung:
     def pizzaHinzufügen(self, pizzaid, pizza, groesse, preis):
         #Eintragung der Auswahl in eine Aktuelle Bestellungsliste und return des Inputs ob eine Weiter Bestellung gewünscht ist
         self.aktuelleBestellung.append(Pizza(pizzaid, pizza, groesse, preis))
+
         return input(f"Möchten Sie 1 {pizza} Ihrer Bestellung hinzufügen?")
 
     def getStatus():
@@ -183,8 +197,13 @@ class Bestellung:
     def setStatus():
         pass
 
-    def berechneGesamtpreis():
-        pass
+    def berechneGesamtpreis(self):
+        gesamtPreis = 0.00
+        for pizza in self.aktuelleBestellung:
+            gesamtPreis = gesamtPreis + pizza.preis
+
+        return gesamtPreis
+        
 
 
 class Zahlung:
@@ -197,6 +216,7 @@ class Zahlung:
 
     def zahlungAusfuehren(self):
         print(f"Sie zahlen {self.betrag}€ mit {self.zahlungsart}")
+        self.status = "Erfolgreich"
 
-    def getStatus():
-        pass
+    def getStatus(self):
+        return self.status
