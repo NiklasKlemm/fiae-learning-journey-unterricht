@@ -16,13 +16,15 @@ Dieses Repository dokumentiert meine praktische Softwareentwicklung während des
 
 Die Aufgaben und Projekte sind modular nach Themengebieten und Komplexitätsgrad gegliedert:
 
-fiae-learning-journey-unterricht 
-├── 01-Passwordabfrage/            # Kontrollstrukturen, While-Schleifen, String-Methoden & Validierung
-├── 02-Mehrdimmensionale Listen/   # Listen, Iteration & vertiefung von Programmierkonzepten wie "clean code" oder "PEP 8"                
-├── 03-IHK Übungsaufgabe/          # Prüfungsnahe Logik- und Algorithmenaufgabe & darstellung im Terminal
-├── 04-OOP Einstieg/               # Klassen, Instanziierung, Konstruktoren (__init__) & Kapselung 
-├── 05-Polymorphie Aufgaben/       # Vererbung, Überschreiben von Methoden & dynamische Methodenbindung
-├── 06-Assosiation/                # Objektbeziehungen (Hat-ein-Beziehung), Aggregation & Komposition 
-├── 07-Geldautomat                 # Anwendungsbeispiel: Umsetzen eines Aktivitätsdiagramm in code
-├── 08-Sequenzdiagramm             # Anwendungsbeispiel: Umsetzen eines Sequenzdiagramm in code 
-└── 09-Python Wiederholungskurs    # Aufgaben anhand eines Python Wiederholungskurs
+```text
+fiae-learning-journey-unterricht/
+├── 01-Passwordabfrage/          # Kontrollstrukturen, While-Schleifen, String-Methoden & Validierung
+├── 02-Mehrdimmensionale Listen/ # Listen, Iteration & Vertiefung von Konzepten wie "Clean Code" / PEP 8
+├── 03-IHK Übungsaufgabe/        # Prüfungsnahe Logik- und Algorithmenaufgabe & Darstellung im Terminal
+├── 04-OOP Einstieg/             # Klassen, Instanziierung, Konstruktoren (__init__) & Kapselung
+├── 05-Polymorphie Aufgaben/     # Vererbung, Überschreiben von Methoden & dynamische Methodenbindung
+├── 06-Assosiation/              # Objektbeziehungen (Hat-ein-Beziehung), Aggregation & Komposition
+├── 07-Geldautomat/              # Anwendungsbeispiel: Umsetzen eines Aktivitätsdiagramms in Code
+├── 08-Sequenzdiagramm/          # Anwendungsbeispiel: Umsetzen eines Sequenzdiagramms in Code
+└── 09-Python Wiederholungskurs/ # Aufgaben anhand eines Python-Wiederholungskurses
+```
