@@ -1,0 +1,20 @@
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyCharm / IntelliJ
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Virtuelle Umgebungen (falls du mal welche anlegst)
+venv/
+.venv/
+env/
+ENV/
+
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
